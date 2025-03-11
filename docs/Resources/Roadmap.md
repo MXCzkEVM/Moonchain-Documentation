@@ -14,14 +14,16 @@ As we stand on the brink of a new era, Moonchain is poised for a transformative 
 We launch the highly anticipated multi-token bridge, revolutionizing mining by offering fast token transfers and enabling swaps across a variety of tokens, including Ethereum-based stablecoins. The new Moonchain bridge will be a bridge to the world. 
 ### Doge Mining
 Welcome to the world of premium multi-token mining, [DOGE](https://etherscan.io/token/0x8aa9381b2544b48c26f3b850f6e07e2c5161eb3e) mining comes to Moonchain! Moonchain’s ecosystem partners keep the promise to NEO miners, introducing [DOGE mining](https://etherscan.io/token/0x8aa9381b2544b48c26f3b850f6e07e2c5161eb3e), upholding transparency and delivering on legacy commitments.
-### Official IHO Launch
-The mining revolution begins with Moonchain’s [Initial Hardware Offering (IHO)](https://iho.moonchain.com/), delivering the world’s first free, cutting-edge physical hardware miners to holders of Moonchain tokens via an Ethereum-based smart contract. This removes hardware costs for users, driving demand and igniting participation in a world first groundbreaking new mining model. We are giving back to the world of mining via free mining hardware, delivered to your door, for free! 
+
 ### WearFi Integration: Mining Through Wearables
 Moonchain integrates “[WearFi](https://www.youtube.com/watch?v=VHcFixeH9YY)” technology, allowing users to mine with everyday wearable devices like smartwatches and rings. This opens mining to a global audience, increasing utility and adoption of Moonchain tokens.
 
 
 
 ## Q2 2025
+### Official IHO Launch
+The mining revolution begins with Moonchain’s [Initial Hardware Offering (IHO)](https://iho.moonchain.com/), delivering the world’s first free, cutting-edge physical hardware miners to holders of Moonchain tokens via an Ethereum-based smart contract. This removes hardware costs for users, driving demand and igniting participation in a world first groundbreaking new mining model. We are giving back to the world of mining via free mining hardware, delivered to your door, for free! 
+
 ### Strategic Industry Partnership
 Moonchain partners with an industry-leading data partner, leveraging anonymized data from miners and wearable devices. We integrate this data into consumer products, adopting Moonchain AI technology to optimize user experience and create a powerful revenue model. By incorporating ZK-Rollup scalability and LoRaWAN technology, we enhance Moonchain’s potential in the growing DePin ecosystem.
 ### IHO Expansion: New Miner “Health Based” & “Gamified” Models + Global Distribution Hubs
@@ -52,7 +54,7 @@ Moonchain hosts a hybrid virtual and in-person summit, showcasing success storie
 ### Launch of Moonchain Mining Academy
 We introduce the Moonchain Mining Academy, an educational platform designed to teach users how to optimize their mining operations, onboard new users, manage crypto portfolios, and stay informed about trends in the mining space. This academy is geared toward new users, partnering with respected educational institutions to convert non-crypto users to our space with a particular focus on those entering the world of Moonchain mining from a Web2 background.
 ### Expanded Cross-Blockchain Integration - Wormhole / Layerzero
-Moonchain expands its ecosystem to support additional blockchain networks, with a planned integration for Wormhole and Layerzero including their associated tokens. This cross-chain integration allows even more users to participate in Moonchain mining and token locking, driving the growth of our community and ecosystem.
+Moonchain expands its ecosystem to support additional blockchain networks, with a planned integration for [Wormhole](https://wormhole.com/) and [Layerzero](https://layerzero.network/) including their associated tokens. This cross-chain integration allows even more users to participate in Moonchain mining and token locking, driving the growth of our community and ecosystem.
 
 ##
 These Moonchain initiatives form the blueprint for our bold future—one where innovation, community, and the decentralized web converge to shape a more empowered, connected world. The journey ahead is just beginning, and we’re thrilled to have you with us every step of the way.
