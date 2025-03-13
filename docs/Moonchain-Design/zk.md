@@ -4,11 +4,25 @@ sidebar_position: 12
 
 # Moonchain ZK Lite Paper
 
+## Mint of MXC
+
+At Moonchain, once a block is produced, validated, and verified, a certain amount of new MXC tokens will be minted. These newly minted MXC tokens are then added to the staking pool, where participants in the mining process can earn them as rewards.
+
+![zk_Mxc](./zk_Mxc.png)
+
+## Participating
+
+There are two types of participants: miner owners and those without miners who wish to join the process. Miner owners act as group leaders, forming mining groups and allowing others to participate. Group leaders must keep their miners in good condition to receive rewards. Those joining a group should choose one with a strong track record of miner performance, as any penalties imposed on a disqualified mining group will affect all associated participants.
+
+![zk_StakingRoles](./zk_StakingRoles.png)
+
+*PS: The reward distribution shown above is subject to change over time.*
 
 
-## Block diagram
 
-![Staking_BlockDiagram](./Staking_BlockDiagram.png)
+## System Block diagram
+
+![zk_BlockDiagram](./zk_BlockDiagram.png)
 
 ### APP
 
@@ -26,25 +40,19 @@ A back-end service includes the prover manager and the Taiko-client-prover. It i
 
 A service running on the miner that retrieves jobs from the back end, generates SGX proofs, and submits them back.
 
-### Staking Contract
-
-An L1 contract on the Arbitrum chain that manages the entire staking process.
 
 
+## Contracts
 
-## Staking (miner owner)
+The staking-related contracts have been deployed on the Arbitrum chain.
 
-A participant needs one miner (SGX prover) and a certain amount of MXC staked in the Moonchain L1 staking contract. After the staking period, the participant can claim a reward. 
+![zk_StakingContracts](./zk_StakingContracts.png)
 
-**[!!Request for Comment:]** A participant using two or more miners with a single wallet will not affect the reward. The advantage of having additional miners is that they can act as backups—if one miner goes down, the others can continue operating, preventing penalties.
+When an SGX miner is produced, the manufacturer mints an NFT for it. When a user purchases the miner, they can claim the corresponding NFT to their own wallet.
 
+The miner owner, who also serves as the mining group leader, must first create a MiningGroupToken to establish a mining group. This allows other users to join and participate in the mining process. Once the group is formed, the miner owner can stake a designated amount of MXC into the pool and claim rewards after a set period.
 
-
-## Staking (without miner)
-
-For those who wish to participate without owning a miner, they can delegate their stake to a miner owner. This delegation results in the reward being split, with 20% going to the miner owner and 80% going to the staking participant.
-
-However, if a penalty is incurred, it will affect both the staking participant and the miner owner. Therefore, it is essential to choose a reliable miner owner when participating.
+Users without a miner can stake by referencing an existing group. When rewards are claimed, a portion of the earnings is allocated to the group leader as a commission.
 
 
 
@@ -52,13 +60,13 @@ However, if a penalty is incurred, it will affect both the staking participant a
 
 A staking period, known as an epoch, lasts for seven days and aligns with every Thursday at 00:00 UTC. Rewards are calculated based on the number of epochs the amount has been staked.
 
-![Staking_EpochTimeline](./Staking_EpochTimeline.png)
+![zk_EpochTimeline](./zk_EpochTimeline.png)
 
 
 
 ## Penalty
 
-![Staking_PenaltyTimeline](./Staking_PenaltyTimeline.png)
+![zk_PenaltyTimeline](./zk_PenaltyTimeline.png)
 
 #### Reward Reduction
 
@@ -77,19 +85,12 @@ When a miner performing actions that harm the network, the staked amount linked 
 List of harmful actions:
 
 - Submission of an Invalid Proof.
-  A miner submitting an invalid proof, which will be rejected by the L1 contract.
-- Failure of Three Consecutive SGX Generation Jobs.
-  **[!! To be changed]** Preliminary observations indicate that Raiko fails for unknown reasons, leaving it in an indeterminate state. Further investigation is required to resolve this issue before this penalty are applied.
+  A miner submitting an invalid proof, which will be rejected by the block proving process.
+- Failure of Three Consecutive SGX Generation Jobs. **[To be apply later]**
 
 
 
-## Reward
-
-Rewards are calculated using an approximate 10% annual percentage rate (APR) applied to the total staked MXC. They are then distributed based on each participant's staking weight and overall pledge duration (measured in epochs).
-
-
-
-## Participating
+## Flow for miner owner
 
 Here’s an example workflow for participating in staking:
 
@@ -104,41 +105,83 @@ After staking, periodically call the L1 Staking Contract to claim rewards.
 
 
 
-## Staking Contract
+## Interact with Contracts
 
-Mainnet Address: TBD
+The staking process interacts with the following contracts on the Arbitrum chain:
 
-Testnet Address: TBD
+- **MXCL1** (TaikoL1.sol)
 
+  Testnet: `0x6a5c9E342d5FB5f5EF8a799f0cAAB2678C939b0B`
 
+  Mainnet: `0x54D8864e8855A7B66eE42B8F2Eaa0F2E06bd641a`
 
-#### function stake(address _user, uint256 _amount)
+- **Staking** (L1Staking.sol)
 
-Deposits MXC token to be used as bonds.
+- **MxcToken** (MxcToken.sol)
 
-_user: The user address to credit.
-
-_amount: The amount of token to deposit.
-
-
-
-#### function stakingRequestWithdrawal(bool cancel)
-
-Request a withdrawal. It will start the lock period.
-
-cancel: Set to true for cancelling any previous request.
+The contract source code can be found in the [GitLab repository](https://github.com/MXCzkEVM/mxc-mono/tree/moonchain-mainnet/packages/protocol/contracts).
 
 
 
-#### function stakingWithdrawal() 
+Below are the example flows for basic staking actions.
 
-User completes the withdrawal after the lock period.
+#### Get contract address of Staking and MxcToken contracts.
+
+```mermaid
+sequenceDiagram
+  APP->>+MXCL1: resolve(encodeBytes32String('staking'))
+  MXCL1-->>-APP: Address of Staking Contract
+  APP->>+MXCL1: resolve(encodeBytes32String('taiko_token'))
+  MXCL1-->>-APP: Address of MxcToken Contract
+```
 
 
 
-#### function stakingClaimReward()
+#### Stake
 
-User claims their accumulated interest and transfers it to their wallet.
+```mermaid
+sequenceDiagram
+  APP->>+MxcToken: approve(stakingAddress, amount)
+  MxcToken-->>-APP: Success
+  APP->>+Staking: stake(userAddress, amount)
+  Staking-->>-APP: Success
+```
+
+
+
+#### Claim
+
+```mermaid
+sequenceDiagram
+  APP->>+Staking: stakingCalculateRewardDebt(userAddress)
+  Staking-->>-APP: Amount of rewarding
+  Note over APP,Staking: Proceed if rewarding > 0
+  APP->>+Staking: stakingClaimReward()
+  Staking-->>-APP: Success
+
+```
+
+#### Withdraw
+
+```mermaid
+sequenceDiagram
+  Note over APP,Staking: Perform the request first.
+  APP->>+Staking: stakingRequestWithdrawal(false)
+  Staking-->>-APP: Success
+  Note over APP,Staking: Wait for lock period.
+  APP->>+Staking: read WITHDRAWAL_LOCK_EPOCH
+  Staking-->>-APP: Withdraw Lock Epoch
+  APP->>+Staking: getCurrentEpoch()
+  Staking-->>-APP: Current Epoch
+  APP->>+Staking: stakingUserState(userAddress)
+  Staking-->>-APP: withdrawalRequestEpoch
+  Note over APP,Staking: Proceed if (Request + Lock) >= Current
+  APP->>+Staking: stakingWithdrawal()
+  Staking-->>-APP: Success
+
+```
+
+
 
 
 
