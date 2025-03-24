@@ -13,7 +13,7 @@ As we stand on the brink of a new era, Moonchain is poised for a transformative 
 ### Moonchain Bridge
 We launch the highly anticipated multi-token bridge, revolutionizing mining by offering fast token transfers and enabling swaps across a variety of tokens, including Ethereum-based stablecoins. The new Moonchain bridge will be a bridge to the world. 
 ### Doge Mining
-Welcome to the world of premium multi-token mining, [DOGE](https://etherscan.io/token/0x8aa9381b2544b48c26f3b850f6e07e2c5161eb3e) mining comes to Moonchain! Moonchain’s ecosystem partners keep the promise to NEO miners, introducing [DOGE mining](https://etherscan.io/token/0x8aa9381b2544b48c26f3b850f6e07e2c5161eb3e), upholding transparency and delivering on legacy commitments.
+Welcome to the world of premium multi-token mining, [DOGE](https://www.universal.xyz/) mining comes to Moonchain! Moonchain’s ecosystem partners keep the promise to NEO miners, introducing [DOGE mining](https://www.universal.xyz/), upholding transparency and delivering on legacy commitments.
 
 ### WearFi Integration: Mining Through Wearables
 Moonchain integrates “[WearFi](https://www.youtube.com/watch?v=VHcFixeH9YY)” technology, allowing users to mine with everyday wearable devices like smartwatches and rings. This opens mining to a global audience, increasing utility and adoption of Moonchain tokens.
