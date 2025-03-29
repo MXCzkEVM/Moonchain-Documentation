@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Contract Addresses
+# Important Contracts
 
 
 
@@ -12,7 +12,7 @@ sidebar_position: 3
 
 | Contract name | Contract address                                             |
 | ------------- | ------------------------------------------------------------ |
-| MXC Token     | [0x5ca381bbfb58f0092df149bd3d243b08b9a8386e](https://etherscan.io/token/0x5ca381bbfb58f0092df149bd3d243b08b9a8386e) |
+| MXC Token(Deprecated) | [0x5ca381bbfb58f0092df149bd3d243b08b9a8386e](https://etherscan.io/token/0x5ca381bbfb58f0092df149bd3d243b08b9a8386e) |
 
 
 
