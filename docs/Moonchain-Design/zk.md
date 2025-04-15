@@ -90,21 +90,6 @@ List of harmful actions:
 
 
 
-## Flow for miner owner
-
-Here’s an example workflow for participating in staking:
-
-1. Purchase a miner.
-2. Use the APP to create a wallet.
-3. Connect to the miner via Bluetooth using the app.
-4. Retrieve the SGX instance ID and save the wallet address to the miner.
-5. Call the API on the Proxy Service to register the miner with the wallet address and SGX instance ID.
-6. Interact with the L1 Staking Contract to stake an amount of MXC.
-
-After staking, periodically call the L1 Staking Contract to claim rewards.
-
-
-
 ## Interact with Contracts
 
 The staking process interacts with the following contracts on the Arbitrum chain:
@@ -115,36 +100,57 @@ The staking process interacts with the following contracts on the Arbitrum chain
 
   Mainnet: `0x54D8864e8855A7B66eE42B8F2Eaa0F2E06bd641a`
 
-- **Staking** (L1Staking.sol)
-
 - **MxcToken** (MxcToken.sol)
 
-The contract source code can be found in the [GitLab repository](https://github.com/MXCzkEVM/mxc-mono/tree/moonchain-mainnet/packages/protocol/contracts).
+- **L1Staking** (L1Staking.sol)
+
+- **ZkCenter** (ZkCenter.sol)
+
+
+The contract source code can be found in the [mxc-mono repository](https://github.com/MXCzkEVM/mxc-mono/tree/moonchain-mainnet/packages/protocol/contracts) and [mxc-zkcenter repository](https://github.com/MXCzkEVM/mxc-zkcenter).
 
 
 
 Below are the example flows for basic staking actions.
 
-#### Get contract address of Staking and MxcToken contracts.
+#### Get contract addresses from MXCL1.
 
 ```mermaid
 sequenceDiagram
-  APP->>+MXCL1: resolve(encodeBytes32String('staking'))
-  MXCL1-->>-APP: Address of Staking Contract
   APP->>+MXCL1: resolve(encodeBytes32String('taiko_token'))
   MXCL1-->>-APP: Address of MxcToken Contract
+  APP->>+MXCL1: resolve(encodeBytes32String('staking'))
+  MXCL1-->>-APP: Address of L1Staking Contract
+  APP->>+MXCL1: resolve(encodeBytes32String('zkcenter'))
+  MXCL1-->>-APP: Address of ZkCenter Contract
 ```
 
 
 
-#### Stake
+#### Create a group and stake (for miner owner)
 
 ```mermaid
 sequenceDiagram
-  APP->>+MxcToken: approve(stakingAddress, amount)
+  Note right of APP: Registered 1 or more miner(s)
+  APP->>+ZkCenter: miningGroupCreate
+  ZkCenter-->>-APP: success
+  APP->>+MxcToken: approve(addressL1Staking, amount)
   MxcToken-->>-APP: Success
-  APP->>+Staking: stake(userAddress, amount)
-  Staking-->>-APP: Success
+  APP->>+ZkCenter: stakeDeposit(amount)
+  ZkCenter-->>-APP: Success
+```
+
+
+
+#### Stake (non miner owner)
+
+```mermaid
+sequenceDiagram
+  Note right of APP: Select a group
+  APP->>+MxcToken: approve(addressL1Staking, amount)
+  MxcToken-->>-APP: Success
+  APP->>+ZkCenter: stakeToGroup(groupId, amount)
+  ZkCenter-->>-APP: Success
 ```
 
 
@@ -153,11 +159,11 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-  APP->>+Staking: stakingCalculateRewardDebt(userAddress)
-  Staking-->>-APP: Amount of rewarding
-  Note over APP,Staking: Proceed if rewarding > 0
-  APP->>+Staking: stakingClaimReward()
-  Staking-->>-APP: Success
+  APP->>+ZkCenter: stakeGetGrossReward()
+  ZkCenter-->>-APP: Gross amount
+  Note over APP,ZkCenter: Proceed if amount > 0
+  APP->>+ZkCenter: stakeClaimReward()
+  ZkCenter-->>-APP: Success
 
 ```
 
@@ -165,19 +171,14 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-  Note over APP,Staking: Perform the request first.
-  APP->>+Staking: stakingRequestWithdrawal(false)
-  Staking-->>-APP: Success
-  Note over APP,Staking: Wait for lock period.
-  APP->>+Staking: read WITHDRAWAL_LOCK_EPOCH
-  Staking-->>-APP: Withdraw Lock Epoch
-  APP->>+Staking: getCurrentEpoch()
-  Staking-->>-APP: Current Epoch
-  APP->>+Staking: stakingUserState(userAddress)
-  Staking-->>-APP: withdrawalRequestEpoch
-  Note over APP,Staking: Proceed if (Request + Lock) >= Current
-  APP->>+Staking: stakingWithdrawal()
-  Staking-->>-APP: Success
+  Note over APP,ZkCenter: Perform the request first.
+  APP->>+ZkCenter: stakeRequestWithdraw(false)
+  ZkCenter-->>-APP: Success
+  Note over APP,ZkCenter: Wait for lock period.
+  APP->>+ZkCenter: stakeClaimReward()
+  ZkCenter-->>-APP: Success
+  APP->>+ZkCenter: stakeWithdraw()
+  ZkCenter-->>-APP: Success
 
 ```
 
@@ -328,13 +329,28 @@ Example response:
 
 ## Miner Registration Flow
 
+Here’s an example flow for registering a miner.
+
+1. Purchase a miner.
+2. Use the APP to create a wallet.
+3. Connect to the miner via Bluetooth using the app.
+4. The APP getting the instance ID via Bluetooth.
+5. Perform first registration step with Prover Service with the wallet address and instance ID.
+6. Save the wallet address and the received agent token to the miner. Then restart the service at miner.
+7. Perform second registration step with Prover Service.
+8. Claim the SGX miner NFT.
+
+
+
 ```mermaid
 sequenceDiagram
   loop Not registered
     Miner->>+ProverService: ping
     ProverService-->>-Miner: Auth failed
   end
-  Note over APP,Miner: Start of registration
+  Note over ZkCenter,Miner: Start of registration
+  APP->>+Miner: Get miner's instance ID
+  Miner-->>-APP: Instance ID
   APP->>+ProverService: registerMiner1
   ProverService-->>-APP: agentToken
   APP->>+Miner: Save walletAddress and agentToken
@@ -343,7 +359,11 @@ sequenceDiagram
   Miner->>+ProverService: ping with correct agentToken
   ProverService-->>-Miner: success
   APP->>+ProverService: registerMiner2
+  ProverService->>+ZkCenter: minerRegister
+  ZkCenter-->>-ProverService: success
   ProverService-->>-APP: appToken
+  APP->>+ZkCenter: minerClaim
+  ZkCenter-->>-APP: success
   Note over APP,Miner: End of registration
   opt APP operations
     APP->>+ProverService: minerStatus
