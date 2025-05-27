@@ -155,7 +155,7 @@ sequenceDiagram
 
 
 
-#### Claim
+#### Claim Reward
 
 ```mermaid
 sequenceDiagram
@@ -183,6 +183,18 @@ sequenceDiagram
 ```
 
 
+
+#### Claim Commission (Group Leader)
+
+```mermaid
+sequenceDiagram
+  APP->>+ZkCenter: stakeGetCommission()
+  ZkCenter-->>-APP: Amount of commission
+  Note over APP,ZkCenter: Proceed if amount > 0
+  APP->>+ZkCenter: stakeClaimCommission()
+  ZkCenter-->>-APP: Success
+
+```
 
 
 
@@ -255,6 +267,36 @@ Example response (miner verified):
   "result": {
     "appToken": "K6P1QE7Az6Qh8JmPFjgR1XhG9bbzWviO1zKMhWN2FyU",
 	"waitForMiner": false  
+  }
+}
+```
+
+
+
+#### GET `/app/minerList/<WALLET_ADDRESS>`
+
+Get the list of miners.
+
+Auth header:
+
+```
+"Authorization" : "Bearer <APP_TOKEN>"
+```
+
+Example response:
+
+```
+{
+  "ret": 0,
+  "message": "",
+  "result": {
+    "count": 4
+    "minerList": [
+      {"instanceId": 1, "lastPing": "2025-02-10T15:01:34.000Z", "online": 1},
+      {"instanceId": 3, "lastPing": "2025-02-10T15:03:14.000Z", "online": 1},
+      {"instanceId": 5, "lastPing": "2025-02-10T15:05:24.000Z", "online": 1},
+      {"instanceId": 7, "lastPing": "2025-02-10T15:07:44.000Z", "online": 1}
+    ]
   }
 }
 ```
