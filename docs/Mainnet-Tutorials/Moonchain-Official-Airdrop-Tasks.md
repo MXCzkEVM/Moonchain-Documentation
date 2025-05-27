@@ -162,8 +162,8 @@ Participate in the Moonchain Loyalty Points Accelerator program through Quest Li
 **Q: How can I transfer tokens from other chains to Moonchain?**
 
 A: You have two ways to transfer MXC assets to Moonchain:
-- Through the official cross-chain bridge: https://erc20.moonchain.com/
-- Directly withdrawing from OKX or KuCoin exchanges to Moonchain (Native L3 chain)
+- Through the official cross-chain bridge: https://jannowitz.moonchain.com/
+- Directly withdrawing from crypto.com or KuCoin exchanges to Moonchain (Native L3 chain)
 
 **Q: What is the total prize pool for the event, and how long does it last?**
 
