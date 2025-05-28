@@ -13,7 +13,8 @@ wstMXC (Wrapped Liquid Staked MXC) is a liquid staking system based on the MXC t
 
 ### Key Component Relationships
 
-```graph TD
+```mermaid
+graph TD
     A[User] --> B[wstMXC Main Contract<br/>Wrapped Liquid Staked MXC]
     B --> C[ZkCenter Extension Contract]
     C --> D[Multiple Staking Pools]
@@ -106,7 +107,8 @@ wstMXC adopts a modular extension mechanism, representing a core innovation comp
 
 **Account Creation Workflow**
 
-```graph TD
+```mermaid
+graph TD
     A[Need New Staking Pool] --> B[Generate Unique Salt]
     B --> C[Invoke SimpleAccountFactory]
     C --> D[Create New AA Account]
@@ -133,7 +135,8 @@ wstMXC adopts a modular extension mechanism, representing a core innovation comp
 
 **Staking Workflow**
 
-```graph LR
+```mermaid
+graph LR
     A[wstMXC Main Contract] --> B[ZkCenter Extension]
     B --> C[Select Staking Pool]
     C --> D[Retrieve Corresponding AA Account]
@@ -164,7 +167,8 @@ wstMXC adopts a modular extension mechanism, representing a core innovation comp
    - Immediately mints wstMXC tokens for the user.
 
 3. **Smart Fund Allocation Strategy**
-   ```graph TD
+```mermaid
+graph TD
    A[New Funds Received] --> B{Pending Withdrawals?}
    B -->|Yes| C[Prioritize Fulfillment of Withdrawal Requests]
    B -->|No| D[Allocate All to Investment]
@@ -174,7 +178,7 @@ wstMXC adopts a modular extension mechanism, representing a core innovation comp
    F --> G[ZkCenter Extension]
    F --> H[Other Extensions]
    F --> I[Retain Liquidity Buffer]
-   ```
+```
 
 #### Deposit Scenario Examples
 
@@ -220,7 +224,8 @@ wstMXC adopts a modular extension mechanism, representing a core innovation comp
 
 **Liquidity Forecasting and Management**
 
-```graph TD
+```mermaid
+graph TD
 A[Monitor Withdrawal Requests] --> B[Forecast Liquidity Demand for Next 7 Days]
 B --> C{Is Liquidity Sufficient?}
 C -->|Yes| D[Maintain Current Strategy]
@@ -273,7 +278,8 @@ E --> H[Temporarily Increase Liquidity Buffer]
 
 **Fund Staking Workflow**
 
-```graph LR
+```mermaid
+graph LR
 A[Extension Receives MXC] --> B[Select Optimal Staking Pool]
 B --> C[Invoke AA Account Execute]
 C --> D[AA Account Calls ZkCenter.stakeToGroup]
@@ -385,7 +391,8 @@ Year 3: 116.64 MXC → 125.97 MXC (8% yield)
 
 **Aggregation Effect**
 
-```graph TD
+```mermaid
+graph TD
 A[1,000 Small Investors] --> B[Aggregated into Large Capital]
 B --> C[Professional Node Operations]
 C --> D[Higher Operational Efficiency]
