@@ -18,7 +18,7 @@ The Moonchain font is a SpaceX font, [try this link.](https://www.fontget.com/fo
 - `2023-07-06`: [Web3 Wave Event](https://www.youtube.com/live/ym6sZsi63CQ?feature=share)
 - `2023-07-11`: [Tea with Taiko - MXC - 2023/07/11](https://www.youtube.com/watch?v=Zo8cUwIAZMw)
 - `2023-08-02`: [MXC zkEVM | A Decentralized World Unleashed](https://www.youtube.com/watch?v=aOUkaMxuu_8)
-- `2023-10-02`: [DWF Chats S2|E5: Xin Hu,  MXC DAO](https://www.youtube.com/watch?v=-pCElEMtLAA)
+- `2023-10-02`: [DWF Chats S2|E5: Xin Hu,  MXC DAO](https://open.spotify.com/episode/5nNHrx93xAGouMH580K3MW?si=MGwJBHqVTf6tBe6-Pl3B5Q)
 - `2023-12-16`: [MXC zkEVM real-world sensor demo](https://www.youtube.com/watch?v=30_Psventos&t=3s)
 - `2024-04-06`: [Hongkong DePIN Summit JDI](https://www.youtube.com/live/WvlbL-OOtvY?si=5cpcKuOf6YETps0V&t=9107)
 
