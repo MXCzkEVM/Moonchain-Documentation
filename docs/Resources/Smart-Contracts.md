@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 🕹Smart Contracts L1/L2
+# 🕹Smart Contracts L1/L2 & Faucet
 
 Here you can find all the L1/L2 contracts
 
@@ -21,3 +21,8 @@ All these can be found : [https://wannsee.mxc.com/docs/Resources/contract-docume
 ## Bridge
 
 All these can be found : [https://wannsee.mxc.com/docs/Resources/contract-documentation/bridge/IBridge](/docs/Contract-Documentation/Bridge-Contract-Documentation/Bridge)
+
+
+## Faucet
+
+https://geneva-bridge.moonchain.com/faucet
