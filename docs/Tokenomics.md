@@ -9,7 +9,6 @@ sidebar_position: 2
 
 The tokenomics of $MCH represent a paradigm shift in network bootstrapping and value accrual. By pioneering the Initial Hardware Offering (IHO) model, we have created a system where the token is not merely a transactional asset but the fundamental key to network participation and ownership. This document outlines how the $MCH token's utility, distribution, and demand drivers are interconnected to fuel the mass global expansion of Moonchain's distributed AI compute layer, ensuring long-term alignment between the protocol, its builders, and its users.
 
----
 
 ### Core Token Utilities
 
