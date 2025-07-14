@@ -42,9 +42,9 @@ The `$MCH` token supply is allocated to foster long-term, sustainable growth, wi
 
 | Category                  | Allocation | Purpose                                                                                                                                                            |
 | ------------------------- | :--------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **AI + IHO Data Mining**  |   **48%**  | The largest allocation, reserved as rewards for hardware operators (node runners) who provide data and compute resources. This is the fuel for network participation. |
+| **AI + ZK Data Mining**  |   **48%**  | The largest allocation, reserved as rewards for hardware operators (node runners) who provide data and compute resources. This is the fuel for network participation. |
 | **Team**                  |   **20%**  | For core contributors, founders, and future hires, subject to long-term vesting to ensure alignment with the project's success.                                       |
-| **Ecosystem Fund**        |   **20%**  | To fund community grants, developer bounties, strategic partnerships, and marketing efforts to bootstrap network adoption and innovation.                          |
+| **Ecosystem Fund + IHO**        |   **20%**  | To fund community grants, developer bounties, strategic partnerships, and marketing efforts to bootstrap network adoption and innovation and IHO mining.                          |
 | **Liquidity / MM**        |   **10%**  | To ensure a healthy and stable trading environment on exchanges, providing deep liquidity for the `$MCH` token from day one.                                            |
 | **Binance Holder Drop**   |    **2%**  | A strategic allocation designed to directly reward Binance users, drive immediate community engagement, and ensure a highly successful launch on the platform.         |
 | **Total Supply**          |  **100%**  |                                                                                                                                                                    |
