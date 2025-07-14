@@ -4,16 +4,13 @@ sidebar_position: 1
 
 # A Brief Introduction
 
-Welcome to the official developer documentation of Moonchain. We're helping Ethereum implement Beam Chain over the next 5 years and utilizing BeamSnarks as the main algorithm to simplify and redesign Ethereum's consensus layer.
+Moonchain is building a decentralized AI hardware network by pioneering an Initial Hardware Offering (IHO) where users stake $MCH tokens to receive and deploy functional hardware, creating a distributed AI compute layer.
 
-:::tip Beam Chain
-Ethereum’s 1st Beam Chain Sublayer. We're helping Ethereum deploy Beam Chain using BeamSnarks, enhancing consensus for 1M hashes/sec in DePIN zkVMs.
-:::
 
 :::tip WIP
 This documentation is still a work in progress. Some topics have been discussed in greater depth, while others require additional clarification. Sections of this documentation might be reorganized later to achieve a better flow.
 
-If you are interested in learning about the basics of zero-knowledge proofs, EVM, and other fundamental concepts behind our Beam Chain, check out Moonchain on [Twitter](https://twitter.com/Moonchain_com).
+If you are interested in learning about the basics of zero-knowledge proofs, EVM, and other fundamental concepts behind our hardware Chain, check out Moonchain on [Twitter](https://twitter.com/Moonchain_com).
 :::
 
 ## 🌔 Getting Started
@@ -31,7 +28,7 @@ Welcome to the cutting-edge world of Moonchain, engineered to serve as the Ether
 
 ### 🔥Key Features
 
-- **IoT/DePIN Scaling**: Enhancing the scalability of IoT and DePIN applications using the Moonchain ($MXC) token as underlying foundation of the infrastructure.
+- **IoT/DePIN Scaling**: Enhancing the scalability of IoT and DePIN applications using the Moonchain ($MCH) token as underlying foundation of the infrastructure.
 - **Wide Range of Applications**: Empowering developers to design, backtest, and deploy any application on the Moonchain Layer 3 blockchain.
 - **Advanced Token Capabilities**: Facilitating Sensor Token Offerings (STOs) and NFT issuances for real-world assets, leveraging innovative protocols like [MEP-600](/docs/Moonchain-Design/MEPs-Moonchain)
 
