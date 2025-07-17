@@ -12,7 +12,7 @@ A key advantage of zkEVM is its scalability. This technology enables projects to
 
 ## Cost Efficiency
 
-zkEVM also offers significant reductions in gas fees compared to the Ethereum mainnet. This cost-effectiveness makes Web3 applications and dApps more accessible. By adopting zkEVM, projects can lower operational costs and concentrate on their core functions. Additionally, zkEVM integration permits the use of MXC tokens for gas fees, thereby enhancing their utility and market demand.
+zkEVM also offers significant reductions in gas fees compared to the Ethereum mainnet. This cost-effectiveness makes Web3 applications and dApps more accessible. By adopting zkEVM, projects can lower operational costs and concentrate on their core functions. Additionally, zkEVM integration permits the use of Moonchain tokens for gas fees, thereby enhancing their utility and market demand.
 
 ## Privacy
 
@@ -20,7 +20,7 @@ Zero-knowledge proofs facilitate the validation of transactions while keeping de
 
 ## Increased Token Utility
 
-The integration of zkEVM has amplified the utility of MXC tokens. MXC tokens can now be used for transaction gas fees within the network, increasing their practical value and demand. This surge in demand further augments the tokens' value for holders. The zkEVM implementation also enhances the overall security and efficiency of the Moonchain network, adding to the utility of MXC tokens.
+The integration of zkEVM has amplified the utility of Moonchain tokens. Moonchain tokens can now be used for transaction gas fees within the network, increasing their practical value and demand. This surge in demand further augments the tokens' value for holders. The zkEVM implementation also enhances the overall security and efficiency of the Moonchain network, adding to the utility of Moonchain tokens.
 
 ## Enhanced Security
 
@@ -28,4 +28,4 @@ Combining zero-knowledge proofs with the Ethereum Virtual Machine provides an ex
 
 ## Conclusion
 
-The integration of zkEVM represents a significant advancement for Web3 accessibility, offering reductions in cost, improvements in scalability, and enhanced privacy. For Moonchain, zkEVM integration has markedly improved the network’s security, scalability, and efficiency, while also increasing the value and demand for MXC tokens. With these advancements, Moonchain is well-positioned to realize its goal of connecting millions of IoT devices across the globe.
+The integration of zkEVM represents a significant advancement for Web3 accessibility, offering reductions in cost, improvements in scalability, and enhanced privacy. For Moonchain, zkEVM integration has markedly improved the network’s security, scalability, and efficiency, while also increasing the value and demand for Moonchain tokens. With these advancements, Moonchain is well-positioned to realize its goal of connecting millions of IoT devices across the globe.
