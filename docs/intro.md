@@ -31,7 +31,7 @@ Welcome to the cutting-edge world of Moonchain, engineered to serve as the Ether
 
 ### 🔥Key Features
 
-- **IoT/DePIN Scaling**: Enhancing the scalability of IoT and DePIN applications using the Moonchain ($MXC) token as underlying foundation of the infrastructure.
+- **IoT/DePIN Scaling**: Enhancing the scalability of IoT and DePIN applications using the Moonchain token as underlying foundation of the infrastructure.
 - **Wide Range of Applications**: Empowering developers to design, backtest, and deploy any application on the Moonchain Layer 3 blockchain.
 - **Advanced Token Capabilities**: Facilitating Sensor Token Offerings (STOs) and NFT issuances for real-world assets, leveraging innovative protocols like [MEP-600](/docs/Moonchain-Design/MEPs-Moonchain)
 
